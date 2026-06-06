@@ -1,0 +1,28 @@
+# action.yml
+name: "sharelatex Sync with Git"
+branding:
+  icon: 'align-center'  
+  color: 'yellow'
+description: "🤖 A GitHub action to take backups from sharelatex which is an Online LaTeX Editor."
+
+
+inputs:
+  SHARELATEX_COOKIE: # id of input
+    description: "Active Cookie of sharelatex account"
+    required: true
+  SHARELATEX_PROJECT_ID: # id of input
+    description: "Id of the project you want the bot to take automatic snapshot"
+    required: true
+  SHARELATEX_HOST:
+    description: "Hostname of your sharelatex Instance, default is sharelatex.cstcloud.cn"
+    default: "sharelatex.cstcloud.cn"
+
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.SHARELATEX_COOKIE }}
+    - ${{ inputs.SHARELATEX_PROJECT_ID }}
+    - ${{ inputs.SHARELATEX_HOST }}
+
