@@ -7,15 +7,15 @@ description: "🤖 A GitHub action to take backups from sharelatex which is an O
 
 
 inputs:
-  SHARELATEX_COOKIE: # id of input
+  SHARELATEX_COOKIE:
     description: "Active Cookie of sharelatex account"
     required: true
-  SHARELATEX_PROJECT_ID: # id of input
+  SHARELATEX_PROJECT_ID:
     description: "Id of the project you want the bot to take automatic snapshot"
     required: true
   SHARELATEX_HOST:
-    description: "Hostname of your sharelatex Instance, default is sharelatex.cstcloud.cn"
-    default: "sharelatex.cstcloud.cn"
+    description: "Hostname of your sharelatex Instance"
+    default: "latex.cstcloud.cn"
 
 
 runs:
@@ -25,4 +25,3 @@ runs:
     - ${{ inputs.SHARELATEX_COOKIE }}
     - ${{ inputs.SHARELATEX_PROJECT_ID }}
     - ${{ inputs.SHARELATEX_HOST }}
-
